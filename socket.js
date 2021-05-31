@@ -12,7 +12,7 @@ const {
   CONNECTION,
   LOGIN,
   DISCONNECT,
-} = require('./socket-events');
+} = require('./events');
 
 const io = require('socket.io')( socket, {
   cors: corsConfig
@@ -23,8 +23,7 @@ io.on(CONNECTION, socket => {
 
   socket.on(LOGIN, async data => {
     try {
-      socket.emit( LOGIN, 'online - login');
-      console.log('logging in')
+      socket.emit(LOGIN, 'online - login');
       const { id :user_id } = data;
       const { id :socket_id } = socket;
       data.id && console.log('a user ' + data.id + ' connected');
@@ -45,6 +44,5 @@ io.on(CONNECTION, socket => {
     }
   });
 });
-
 
 module.exports = socket;
