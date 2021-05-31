@@ -18,7 +18,6 @@ The user then queries the database from the app and gets a real representation o
   - express `^4.17.1`
   - knex `^0.95.6`
   - nodemon `^2.0.7`
-  - objection `^2.2.15`
   - pg `^8.6.0`
   - socket . io `^4.1.2`
   
