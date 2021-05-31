@@ -1,4 +1,4 @@
-const userDAO = require("../user/user.dao");
+const userDAO = require('../user/user.dao');
 
 class UserService {
   async changeOnlineState ({ id, online }) {
