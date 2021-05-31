@@ -1,9 +1,8 @@
-const User = require('./user.model');
+const db = require('../../db');
 
 class UserDAO {
   changeOnlineState ({ id, online }) {
-    return User
-      .query()
+    return db('user')
       .where('id', id)
       .update({ online });
   }
