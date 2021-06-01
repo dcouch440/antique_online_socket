@@ -1,5 +1,5 @@
 const app = require('./app');
-const socket = require('http').createServer(app);
+const server = require('http').createServer(app);
 const corsConfig = require('./config/cors.config');
 
 const {
@@ -14,9 +14,7 @@ const {
   DISCONNECT,
 } = require('./events');
 
-const io = require('socket.io')( socket, {
-  cors: corsConfig
-});
+const io = require('socket.io')(server, { cors: corsConfig });
 
 io.on(CONNECTION, socket => {
   socket.emit(CONNECTION, 'online - connection');
@@ -45,4 +43,4 @@ io.on(CONNECTION, socket => {
   });
 });
 
-module.exports = socket;
+module.exports = server;
